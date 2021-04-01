@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search demo RNN</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        
+    </head>
+    <body style="background: url(https://images.squarespace-cdn.com/content/v1/5ce82b63338ade0001773744/1560194358763-0FSEP70XI34IL8XXZEQQ/ke17ZwdGBToddI8pDm48kOxLRGAfd8DHyn-VO-OS79h7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0s0XaMNjCqAzRibjnE_wBlnKv1yxoTk5msUVUpzS-jwidPkl-46T667XTMzLYTMBnw/pickle-perfection-v1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid" style="margin-top: 7em;">
+                  <form class="d-flex input-group w-auto">
+                    <input
+                      type="search"
+                      class="form-control"
+                      placeholder="Type query"
+                      aria-label="Search"
+                      id="searchBar"
+                    />
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="search-btn"
+                    >
+                      Search
+                    </button>
+                  </form>
+                </div>
+              </nav>
+        
+        <!-- <script src="search.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script language="javascript">
+
+          var searchBar = document.getElementById("searchBar");
+          searchBar.oninput = function(){
+            var input_text = document.getElementById("searchBar").value;
+            console.log(input_text);
+            fetch(`/change`)
+            .then(function (response) {
+                return response.text();
+              }).then(function (text) {
+                console.log('GET response text:');
+                console.log(text); 
+                });
+            // $.ajax({
+            //   type: "GET",
+            //   url: "http://127.0.0.1:5000/gettext"
+            // }).done(function(o){
+            //   console.log(o);
+            // });
+          }
+          
+        </script>
+    </body>
+</html>
